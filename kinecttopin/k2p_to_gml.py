@@ -105,6 +105,12 @@ def writeTextFile(name="test.txt", lines=None):
         file.write(line) 
     file.close() 
 
+def remap(value, min1, max1, min2, max2):
+    range1 = max1 - min1
+    range2 = max2 - min2
+    valueScaled = float(value - min1) / float(range1)
+    return min2 + (valueScaled * range2)
+    
 def gmlHeader(dim=(1024,1024,1024)):
     s = "<gml spec=\"0.1b\">" + "\r"
     s += "\t<tag>" + "\r"

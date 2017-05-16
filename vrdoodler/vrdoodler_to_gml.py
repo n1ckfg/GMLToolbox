@@ -54,6 +54,12 @@ def checkForZero(v):
 	else:
 		return False
 
+def remap(value, min1, max1, min2, max2):
+    range1 = max1 - min1
+    range2 = max2 - min2
+    valueScaled = float(value - min1) / float(range1)
+    return min2 + (valueScaled * range2)
+
 def main():
     import argparse
     parser = argparse.ArgumentParser(description="Convert a VRDoodler .obj")
@@ -134,7 +140,7 @@ def save_gp(filename):
                 points = []
         elif str(line).startswith("v") == True:
             pointRaw = line.split()
-            point = (-1 * float(pointRaw[1]), float(pointRaw[2]), float(pointRaw[3]))
+            point = (float(pointRaw[1]), float(pointRaw[2]), float(pointRaw[3]))
             points.append(point)
     print("Read " + str(len(strokes)) + " strokes.")
 

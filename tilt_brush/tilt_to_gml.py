@@ -40,6 +40,65 @@ try:
 except ImportError:
     print >>sys.stderr, "Please put the 'Python' directory in your PYTHONPATH"
     sys.exit(1)
+
+timeCounter = 0
+timeIncrement = 0.01
+
+def gmlHeader(dim=(1024,1024,1024)):
+    s = "<gml spec=\"0.1b\">" + "\r"
+    s += "\t<tag>" + "\r"
+    s += "\t\t<header>" + "\r"
+    s += "\t\t\t<client>" + "\r"
+    s += "\t\t\t\t<name>TiltBrush</name>" + "\r"
+    s += "\t\t\t</client>" + "\r"
+    s += "\t\t</header>" + "\r"
+    s += "\t\t<environment>" + "\r"
+    s += "\t\t\t<up>" + "\r"
+    s += "\t\t\t\t<x>0</x>" + "\r"
+    s += "\t\t\t\t<y>1</y>" + "\r"
+    s += "\t\t\t\t<z>0</z>" + "\r"
+    s += "\t\t\t</up>" + "\r"
+    s += "\t\t\t<screenBounds>" + "\r"
+    s += "\t\t\t\t<x>" + str(dim[0]) + "</x>" + "\r"
+    s += "\t\t\t\t<y>" + str(dim[1]) + "</y>" + "\r"
+    s += "\t\t\t\t<z>" + str(dim[2]) + "</z>" + "\r"
+    s += "\t\t\t</screenBounds>" + "\r"
+    s += "\t\t</environment>" + "\r"
+    s += "\t\t<drawing>" + "\r"
+    return s
+
+def gmlFooter():
+    s = "\t\t</drawing>" + "\r"
+    s += "\t</tag>" + "\r"
+    s += "</gml>" + "\r"
+    return s
+
+def gmlStroke(points, color):
+    s = "\t\t\t<stroke>" + "\r"
+    s += "\t\t\t\t<brush>" + "\r"
+    s += "\t\t\t\t\t<color>" + "\r"
+    s += "\t\t\t\t\t\t<r>" + str(color[0]) + "</r>" + "\r"
+    s += "\t\t\t\t\t\t<g>" + str(color[1]) + "</g>" + "\r"
+    s += "\t\t\t\t\t\t<b>" + str(color[2]) + "</b>" + "\r"
+    s += "\t\t\t\t\t\t<a>" + str(color[3]) + "</a>" + "\r"
+    s += "\t\t\t\t\t</color>" + "\r"
+    s += "\t\t\t\t</brush>" + "\r"
+    for point in points:
+        s += gmlPoint(point)
+    s += "\t\t\t</stroke>" + "\r"
+    return s
+
+def gmlPoint(point):
+    global timeCounter
+    global timeIncrement
+    s = "\t\t\t\t<pt>" + "\r"
+    s += "\t\t\t\t\t<x>" + str(point[0]) + "</x>" + "\r"
+    s += "\t\t\t\t\t<y>" + str(point[1]) + "</y>" + "\r"
+    s += "\t\t\t\t\t<z>" + str(point[2]) + "</z>" + "\r"
+    s += "\t\t\t\t\t<time>" + str(timeCounter) + "</time>" + "\r"
+    s += "\t\t\t\t</pt>" + "\r"
+    timeCounter += timeIncrement
+    return s
     
 def dump_sketch(sketch, filename):
     globalScale = (-0.01, 0.01, 0.01)
@@ -48,106 +107,32 @@ def dump_sketch(sketch, filename):
     numPlaces = 7
     roundValues = True
     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-    sg = "{" + "\n"
-    sg += "    \"creator\": \"tiltbrush\"," + "\n"
-    sg += "    \"grease_pencil\": [" + "\n"
-    sg += "        {" + "\n"
-    sg += "            \"layers\": [" + "\n"
-    sl = ""
-    for f in range(0, 1): #layers
-        sb = ""
-        #layer = gp.layers[f]
-        for h in range(0, 1): #frames
-            currentFrame = h
-            #goToFrame(h)
-            sb += "                        {" + "\n" # one frame
-            #sb += "                           \"index\": " + str(h) + ",\n"
-            sb += "                            \"strokes\": [" + "\n"
-            sb += "                                {" + "\n" # one stroke
-            for i in range(0, len(sketch.strokes)):
-            	stroke = sketch.strokes[i]
-            	#vertGroupRaw = decodeData(data["strokes"][i]["v"], "v")
-            	#colorGroup = decodeData(data["strokes"][i]["c"], "c")
-            	#vertGroup = []
-            	# hack that only approximates original position
-            	'''
-            	for j in range(0, len(vertGroupRaw), 3):
-            		if (checkForZero(vertGroupRaw[j+1])==False):
-            			vertGroup.append(vertGroupRaw[j+1])
-            	'''
-            	#for j in range(0, len(vertGroupRaw), 3):
-            		#if (checkForZero(vertGroupRaw[j+2])==False):
-            			#vertGroup.append(vertGroupRaw[j+2])
-
-                color = (0,0,0)
-                try:
-                    color = (stroke.brush_color[0], stroke.brush_color[1], stroke.brush_color[2])
-                except:
-                    pass
-                if roundValues == True:
-                	sb += "                                    \"color\": [" + str(roundVal(color[0], numPlaces)) + ", " + str(roundVal(color[1], numPlaces)) + ", " + str(roundVal(color[2], numPlaces)) + "]," + "\n"
-                else:
-                	sb += "                                    \"color\": [" + str(color[0]) + ", " + str(color[1]) + ", " + str(color[2]) + "]," + "\n"
-                sb += "                                    \"points\": [" + "\n"
-                for j in range(0, len(stroke.controlpoints)):
-                    x = 0.0
-                    y = 0.0
-                    z = 0.0
-                    #~
-                    point = stroke.controlpoints[j].position
-                    pressure = 1.0
-                    strength = 1.0
-                    try:
-                        pressure = stroke.controlpoints[j].extension[0]
-                        strength = pressure
-                    except:
-                        pass
-                    #~
-                    if useScaleAndOffset == True:
-                        x = (point[0] * globalScale[0]) + globalOffset[0]
-                        y = (point[1] * globalScale[1]) + globalOffset[1]
-                        z = (point[2] * globalScale[2]) + globalOffset[2]
-                    else:
-                        x = point[0]
-                        y = point[1]
-                        z = point[2]
-                    #~
-                    if roundValues == True:
-                        sb += "                                        {\"co\": [" + roundVal(x, numPlaces) + ", " + roundVal(y, numPlaces) + ", " + roundVal(z, numPlaces) + "], \"pressure\": " + str(float(roundVal(pressure, numPlaces))) + ", \"strength\": " + str(float(roundVal(strength, numPlaces)))
-                    else:
-                        sb += "                                        {\"co\": [" + str(x) + ", " + str(y) + ", " + str(z) + "], \"pressure\": " + str(pressure) + ", \"strength\": " + str(strength)                  
-                    #~
-                    if j == len(stroke.controlpoints) - 1:
-                        sb += "}" + "\n"
-                        sb += "                                    ]" + "\n"
-                        if (i == len(sketch.strokes) - 1):
-                            sb += "                                }" + "\n" # last stroke for this frame
-                        else:
-                            sb += "                                }," + "\n" # end stroke
-                            sb += "                                {" + "\n" # begin stroke
-                    else:
-                        sb += "}," + "\n"
-                if i == len(sketch.strokes) - 1:
-                    sb += "                            ]" + "\n"
-            #if h == len(layer.frames) - 1:
-            sb += "                        }" + "\n"
-            #else:
-                #sb += "                        }," + "\n"
-        #~
-        sf = "                {" + "\n" 
-        sf += "                    \"name\": \"" + "TiltBrush_Layer" + "\"," + "\n"
-        sf += "                    \"frames\": [" + "\n" + sb + "                    ]" + "\n"
-        #if (f == len(gp.layers)-1):
-        sf += "                }" + "\n"
-        #else:
-            #sf += "                }," + "\n"
-        sl += sf
-        #~
-    sg += sl
-    sg += "            ]" + "\n"
-    sg += "        }"+ "\n"
-    sg += "    ]"+ "\n"
-    sg += "}"+ "\n"
+    sg = gmlHeader((512,512,512))
+    allVals = []
+    minVal = 0
+    maxVal = 1
+    for stroke in sketch.strokes:
+    	for controlpoint in stroke.controlpoints:
+    		for val in controlpoint.position:
+    			allVals.append(val)
+    allVals.sort()
+    minVal = allVals[0]
+    maxVal = allVals[len(allVals)-1]
+    for stroke in sketch.strokes:
+        color = (1,1,1)
+        try:
+            color = (stroke.brush_color[0], stroke.brush_color[1], stroke.brush_color[2], 1)
+        except:
+            pass
+        points = []
+        for controlpoint in stroke.controlpoints:
+            point = controlpoint.position
+            x = remap(point[0], minVal, maxVal, 0, 1)
+            y = remap(point[1], minVal, maxVal, 0, 1)
+            z = remap(point[2], minVal, maxVal, 0, 1)
+            points.append((x,y,z))
+        sg += gmlStroke(points, color)
+    sg += gmlFooter()
 	# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
     """Prints out some rough information about the strokes.
     Pass a tiltbrush.tilt.Sketch instance."""
@@ -173,7 +158,7 @@ def dump_sketch(sketch, filename):
         output += dump_stroke(stroke)
     '''
     
-    url = filename + ".json"
+    url = filename + ".gml"
     with open(url, "w") as f:
         f.write(sg)
         f.closed
@@ -225,6 +210,12 @@ def checkForZero(v):
 	else:
 		return False
 
+def remap(value, min1, max1, min2, max2):
+    range1 = max1 - min1
+    range2 = max2 - min2
+    valueScaled = float(value - min1) / float(range1)
+    return min2 + (valueScaled * range2)
+
 def main():
     import argparse
     parser = argparse.ArgumentParser(description="View information about a .tilt")
@@ -245,3 +236,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
