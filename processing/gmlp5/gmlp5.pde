@@ -1,9 +1,10 @@
 XML xml;
 ArrayList<PVector> points;
 PVector dim;
+Cam cam;
 
 void setup() {
-  size(50,50);
+  size(50,50, P3D);
   
   xml = loadXML("example.gml");
   XML tag = xml.getChild("tag");
@@ -29,15 +30,20 @@ void setup() {
   }
   
   surface.setSize(int(dim.x), int(dim.y));
+  cam = new Cam();
 }
 
 void draw() {
   background(0);
+  
   for (int i=1; i<points.size(); i++) {
     PVector point1 = (PVector) points.get(i);
     PVector point2 = (PVector) points.get(i-1);
     strokeWeight(5);
     stroke(255);
-    line(point1.x, point1.y, point2.x, point2.y);
+    line(point1.x, point1.y, point1.z, point2.x, point2.y, point2.z);
   }
+  
+  updateControls();
+  cam.run();
 }
