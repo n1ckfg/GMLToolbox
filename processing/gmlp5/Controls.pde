@@ -60,6 +60,8 @@ void updateControls() {
   
   if (keySpace) {
     cam.reset();
+    //gml.time = 0;
+    gml.timeOffset += float(millis())/1000.0;
     keysOff();  
   }
 }
