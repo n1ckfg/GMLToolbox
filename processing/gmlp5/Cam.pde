@@ -42,6 +42,12 @@ class Cam {
     draw();
   }
   
+  void move(float x, float y, float z) {
+    PVector p = new PVector(x,y,z);
+    pos = pos.add(p);
+    poi = poi.add(p);
+  }
+  
   void defaultPos() {
     pos.x = width/2.0;
     pos.y = height/2.0;
@@ -58,6 +64,12 @@ class Cam {
     up.x = 0;
     up.y = 1;
     up.z = 0;
+  }
+  
+  void reset() {
+    defaultPos();
+    defaultPoi();
+    defaultUp();
   }
   
 }
