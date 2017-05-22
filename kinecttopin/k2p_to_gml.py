@@ -102,10 +102,10 @@ def k2p_to_gml():
                         if (jointSelection == point[4]):
                             jointSelectionPoints.append(point)
     if (jointSelection != "all"):
-    	if (len(jointSelectionPoints) < 1):
-    		print("ERROR: Joint selection must be one of: ")
-    		print("all, head, neck, torso, l_shoulder, l_elbow, l_hand, r_shoulder, r_elbow, r_hand, l_hip, l_knee, l_foot, r_hip, r_knee, r_foot")
-    		return
+        if (len(jointSelectionPoints) < 1):
+            print("ERROR: Joint selection must be one of: ")
+            print("all, head, neck, torso, l_shoulder, l_elbow, l_hand, r_shoulder, r_elbow, r_hand, l_hip, l_knee, l_foot, r_hip, r_knee, r_foot")
+            return
         outputFile.append(gmlStroke(jointSelectionPoints))
     outputFile.append(gmlFooter())
     writeTextFile(outputDir + "output.gml", outputFile)
@@ -129,19 +129,19 @@ def gmlHeader(dim=(1024,1024,1024)):
     s += "\t\t\t<client>" + "\r"
     s += "\t\t\t\t<name>KinectToPin</name>" + "\r"
     s += "\t\t\t</client>" + "\r"
+    s += "\t\t\t<environment>" + "\r"
+    s += "\t\t\t\t<up>" + "\r"
+    s += "\t\t\t\t\t<x>0</x>" + "\r"
+    s += "\t\t\t\t\t<y>1</y>" + "\r"
+    s += "\t\t\t\t\t<z>0</z>" + "\r"
+    s += "\t\t\t\t</up>" + "\r"
+    s += "\t\t\t\t<screenBounds>" + "\r"
+    s += "\t\t\t\t\t<x>" + str(dim[0]) + "</x>" + "\r"
+    s += "\t\t\t\t\t<y>" + str(dim[1]) + "</y>" + "\r"
+    s += "\t\t\t\t\t<z>" + str(dim[2]) + "</z>" + "\r"
+    s += "\t\t\t\t</screenBounds>" + "\r"
+    s += "\t\t\t</environment>" + "\r"
     s += "\t\t</header>" + "\r"
-    s += "\t\t<environment>" + "\r"
-    s += "\t\t\t<up>" + "\r"
-    s += "\t\t\t\t<x>0</x>" + "\r"
-    s += "\t\t\t\t<y>1</y>" + "\r"
-    s += "\t\t\t\t<z>0</z>" + "\r"
-    s += "\t\t\t</up>" + "\r"
-    s += "\t\t\t<screenBounds>" + "\r"
-    s += "\t\t\t\t<x>" + str(dim[0]) + "</x>" + "\r"
-    s += "\t\t\t\t<y>" + str(dim[1]) + "</y>" + "\r"
-    s += "\t\t\t\t<z>" + str(dim[2]) + "</z>" + "\r"
-    s += "\t\t\t</screenBounds>" + "\r"
-    s += "\t\t</environment>" + "\r"
     s += "\t\t<drawing>" + "\r"
     return s
 

@@ -24,7 +24,7 @@ class Gml {
     xml = loadXML(fileName);
     XML tag = xml.getChild("tag");
     XML header = tag.getChild("header");
-    XML environment = tag.getChild("environment");
+    XML environment = header.getChild("environment");
     XML screenBounds = environment.getChild("screenBounds");
     dim = new PVector();
     dim.x = screenBounds.getChild("x").getFloatContent();
