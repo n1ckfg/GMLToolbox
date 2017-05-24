@@ -93,11 +93,11 @@ def painterFooter():
 def painterStroke(points):
     s = "stroke_start" + "\r"
     for point in points:
-        s += gmlPoint(point)
+        s += painterPoint(point)
     s += "stroke_end" + "\r"
     return s
 
-def gmlPoint(point):
+def painterPoint(point):
     x = point[0]
     y = point[1]
     time = point[3]
