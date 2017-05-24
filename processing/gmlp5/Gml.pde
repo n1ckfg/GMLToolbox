@@ -25,11 +25,20 @@ class Gml {
     XML tag = xml.getChild("tag");
     XML header = tag.getChild("header");
     XML environment = header.getChild("environment");
-    XML screenBounds = environment.getChild("screenBounds");
+    XML screenBounds;
+    try {
+      screenBounds = environment.getChild("screenBounds");
+    } catch (Exception e) {
+      screenBounds = tag.getChild("environment").getChild("screenBounds");
+    }
     dim = new PVector();
     dim.x = screenBounds.getChild("x").getFloatContent();
     dim.y = screenBounds.getChild("y").getFloatContent();
-    dim.z = screenBounds.getChild("z").getFloatContent();
+    try {
+      dim.z = screenBounds.getChild("z").getFloatContent();
+    } catch (Exception e) {
+      dim.z = 0;
+    }
     width = int(dim.x);
     height = int(dim.y);
 
@@ -108,7 +117,12 @@ class GmlPoint {
   GmlPoint(XML _xml, PVector _dim) {
     float x = _xml.getChild("x").getFloatContent() * _dim.x;
     float y = _xml.getChild("y").getFloatContent() * _dim.y;
-    float z = _xml.getChild("z").getFloatContent() * _dim.z;
+    float z = 0;
+    try {
+      z = _xml.getChild("z").getFloatContent() * _dim.z;
+    } catch (Exception e) {
+      //
+    }
     pos = new PVector(x,y,z);
     time = _xml.getChild("time").getFloatContent();
   }

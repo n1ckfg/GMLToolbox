@@ -11,9 +11,10 @@ class Gml {
         this.timeOffset = 2.0;
         this.speed = 2.0;
 
+        console.log(data.getChild("tag"));
         var header = data.children[0].children[0];
         var client = header.children[0];
-        var environment = data.children[0].children[1];
+        var environment = header.children[1];
         var up = environment.children[0];
         var screenBounds = environment.children[1];
 
@@ -21,7 +22,7 @@ class Gml {
         this.width = parseInt(this.dim[0]);
         this.height = parseInt(this.dim[1]);
 
-        var drawing = data.children[0].children[2];
+        var drawing = data.children[0].children[1];
         for (var i=0; i<drawing.children.length; i++) {
             var stroke = new GmlStroke(drawing.children[i], this.dim);
             this.strokes.push(stroke);
@@ -79,3 +80,13 @@ class GmlPoint {
 
 }
 
+function findElement(xml, name) {
+	var returns;
+	for (var i=0; i<xml.xmlElement.length; i++) {
+		if (xml.xmlElement[i].tagName == name) {
+			returns = xml.xmlElements[i];
+			break;
+		}
+	}
+	return returns;
+}
