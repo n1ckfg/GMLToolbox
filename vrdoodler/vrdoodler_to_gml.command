@@ -10,6 +10,6 @@ DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
 cd $DIR
 
-INPUT=example.obj
+INPUT=../test_files/vrdoodler/example.obj
 
 python vrdoodler_to_gml.py -- $DIR/$INPUT
