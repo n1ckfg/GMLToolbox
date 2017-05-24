@@ -1,0 +1,395 @@
+script_version_number version 10
+artist_name ""
+start_time date Wed, May 24, 2017 time 7:34 PM
+start_random 206560860 394551794
+variant "Painter Brushes" "Artists' Oils" "Blender Bristle"
+penetration_slider 0 percent
+texture "Paper Textures" "<str t=17500 i=001>"
+grain_inverted unchecked
+directional_grain unchecked
+scale_slider    1.00000
+paper_brightness_slider    0.50000
+paper_contrast_slider    1.00000
+portfolio_change ""
+gradation "Painter Gradients.gradients" "Two-Point"
+weaving "Painter Weaves.weaves" "<str t=17504 i=001>"
+pattern_change "Painter Patterns" "<str t=17001 i=001>"
+path_library_change "Painter Selections"
+nozzle_change "Painter Nozzles" "<str t=17000 i=001>"
+use_brush_grid unchecked
+new_tool 1
+gradation_options type 0 order 0 angle    0.00 spirality  1.000
+pattern_options pattern_type 1 offset 0.594
+preserve_transparency unchecked
+wind_direction 4.712389
+color red 129 green 123 blue 115
+background_color red 255 green 255 blue 255
+change_file "ntitled-4"
+new_3 "Untitled-4" width 1920 height 1080 resolution   72.00000 width_unit 1 height_unit 1 resolution_unit 1 paper_color red 255 green 255 blue 255 movie 0 frames 1
+stroke_start
+pnt x  850.00 y  550.00 time 2728012 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  848.89 y  548.89 time 2728012 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  848.40 y  538.45 time 2728013 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  848.18 y  511.65 time 2728014 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  854.71 y  483.09 time 2728015 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  872.02 y  449.30 time 2728016 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  889.70 y  424.25 time 2728017 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  908.67 y  403.10 time 2728018 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  929.31 y  391.43 time 2728019 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  950.70 y  386.21 time 2728020 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  970.22 y  390.52 time 2728021 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  991.11 y  406.82 time 2728022 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1011.51 y  429.59 time 2728023 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1030.58 y  459.68 time 2728024 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1045.74 y  488.61 time 2728025 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1058.05 y  517.03 time 2728026 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1066.87 y  547.43 time 2728027 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1071.92 y  586.45 time 2728028 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1074.18 y  621.59 time 2728030 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1060.80 y  653.89 time 2728031 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1027.18 y  687.13 time 2728032 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  985.60 y  710.83 time 2728033 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  931.63 y  724.75 time 2728034 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  878.75 y  730.97 time 2728035 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  840.73 y  728.22 time 2728036 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  809.36 y  709.30 time 2728037 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  793.12 y  682.03 time 2728038 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  786.97 y  651.05 time 2728039 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  796.39 y  619.50 time 2728040 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  813.87 y  598.76 time 2728041 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  837.17 y  588.39 time 2728042 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  854.22 y  583.75 time 2728043 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  867.37 y  581.67 time 2728044 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  875.46 y  580.75 time 2728045 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  880.18 y  582.55 time 2728046 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  882.29 y  584.46 time 2728047 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  883.24 y  586.41 time 2728048 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  883.66 y  588.40 time 2728049 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  883.66 y  588.40 time 2728049 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+stroke_end
+stroke_start
+pnt x  864.00 y  574.00 time 2728066 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  858.47 y  570.68 time 2728066 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  850.46 y  564.77 time 2728067 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  841.36 y  556.60 time 2728068 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  835.08 y  547.42 time 2728069 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  832.27 y  536.68 time 2728070 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  842.07 y  526.35 time 2728071 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  867.47 y  517.31 time 2728072 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  912.00 y  513.27 time 2728073 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  950.71 y  513.67 time 2728074 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  979.07 y  519.38 time 2728075 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1000.60 y  529.68 time 2728076 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1012.43 y  540.91 time 2728077 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1017.72 y  553.68 time 2728078 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1020.09 y  564.91 time 2728079 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1021.14 y  574.36 time 2728080 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1021.62 y  581.90 time 2728081 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1020.72 y  587.48 time 2728082 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1014.79 y  589.98 time 2728083 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1001.08 y  591.10 time 2728084 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  985.00 y  588.28 time 2728085 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  965.64 y  580.38 time 2728086 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  949.25 y  572.43 time 2728087 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  936.39 y  564.45 time 2728088 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  936.39 y  564.45 time 2728088 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+stroke_end
+stroke_start
+pnt x  898.00 y  556.00 time 2728103 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  896.89 y  552.68 time 2728104 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  896.40 y  543.45 time 2728105 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  897.28 y  533.80 time 2728106 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  909.84 y  522.85 time 2728107 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  933.16 y  513.53 time 2728108 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  971.23 y  509.37 time 2728109 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1003.73 y  507.50 time 2728110 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1027.10 y  506.67 time 2728111 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1040.87 y  507.41 time 2728112 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1048.13 y  507.73 time 2728113 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1051.38 y  508.98 time 2728114 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1051.38 y  508.98 time 2728114 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+stroke_end
+stroke_start
+pnt x  908.00 y  558.00 time 2728128 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  908.00 y  556.89 time 2728130 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  915.74 y  555.29 time 2728131 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  940.21 y  554.58 time 2728132 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  975.49 y  557.57 time 2728133 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1007.84 y  568.87 time 2728134 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1034.47 y  584.98 time 2728135 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1055.22 y  603.24 time 2728136 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1065.61 y  624.67 time 2728137 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1070.25 y  643.10 time 2728138 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1072.32 y  656.87 time 2728139 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1065.51 y  667.45 time 2728140 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1054.72 y  673.28 time 2728141 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1054.72 y  673.28 time 2728141 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+stroke_end
+stroke_start
+pnt x  918.00 y  648.00 time 2728157 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  910.26 y  643.57 time 2728157 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  899.05 y  634.96 time 2728158 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  889.62 y  626.69 time 2728159 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  882.09 y  619.67 time 2728160 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  877.61 y  613.21 time 2728161 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  875.61 y  609.22 time 2728162 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  882.46 y  606.34 time 2728163 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  907.64 y  603.94 time 2728164 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  944.34 y  615.03 time 2728165 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  979.54 y  642.11 time 2728166 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1007.45 y  671.91 time 2728167 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1029.87 y  713.98 time 2728168 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1039.89 y  748.28 time 2728169 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1041.06 y  777.98 time 2728170 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1024.99 y  799.01 time 2728171 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1005.64 y  809.51 time 2728172 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  988.14 y  814.20 time 2728173 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  988.14 y  814.20 time 2728173 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+stroke_end
+stroke_start
+pnt x  930.00 y  660.00 time 2728200 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  927.79 y  660.00 time 2728202 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  917.95 y  660.00 time 2728204 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  894.75 y  660.00 time 2728205 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  861.16 y  662.21 time 2728206 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  817.38 y  665.41 time 2728207 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  783.44 y  667.95 time 2728208 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  754.99 y  669.08 time 2728209 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  734.54 y  669.59 time 2728210 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  723.18 y  669.82 time 2728211 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  723.18 y  669.82 time 2728211 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+stroke_end
+stroke_start
+pnt x  884.00 y  632.00 time 2728233 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  876.26 y  632.00 time 2728236 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  848.46 y  630.89 time 2728237 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  776.32 y  608.28 time 2728238 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  683.24 y  564.99 time 2728239 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  600.71 y  515.78 time 2728240 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  535.06 y  467.23 time 2728241 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  495.77 y  436.69 time 2728242 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  471.56 y  416.40 time 2728243 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  471.56 y  416.40 time 2728243 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+stroke_end
+stroke_start
+pnt x  678.00 y  414.00 time 2728259 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  678.00 y  409.57 time 2728261 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  678.00 y  391.01 time 2728262 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  679.11 y  359.48 time 2728263 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  695.08 y  308.89 time 2728264 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  724.34 y  258.63 time 2728265 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  771.71 y  211.83 time 2728266 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  771.71 y  211.83 time 2728266 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+stroke_end
+color red 255 green 143 blue 1
+color red 255 green 1 blue 1
+stroke_start
+pnt x  686.00 y  460.00 time 2728424 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  683.79 y  458.89 time 2728424 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  681.69 y  448.45 time 2728425 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  680.75 y  429.39 time 2728426 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  681.44 y  393.23 time 2728427 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  689.49 y  359.37 time 2728428 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  701.94 y  333.17 time 2728429 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  718.56 y  310.40 time 2728430 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  732.63 y  296.91 time 2728431 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  743.34 y  289.77 time 2728432 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  750.34 y  285.47 time 2728433 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  754.57 y  283.55 time 2728434 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  754.57 y  283.55 time 2728434 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+stroke_end
+stroke_start
+pnt x  690.00 y  426.00 time 2728453 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  691.11 y  423.79 time 2728454 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  703.77 y  406.21 time 2728455 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  726.01 y  379.55 time 2728456 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  758.08 y  343.30 time 2728457 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  790.11 y  312.72 time 2728458 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  816.59 y  289.09 time 2728459 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  835.07 y  274.11 time 2728460 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  845.54 y  266.30 time 2728461 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  850.21 y  261.71 time 2728462 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  850.21 y  261.71 time 2728462 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+stroke_end
+stroke_start
+pnt x  710.00 y  450.00 time 2728481 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  711.11 y  446.68 time 2728482 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  727.08 y  430.82 time 2728483 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  757.45 y  403.82 time 2728484 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  794.25 y  379.59 time 2728485 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  840.56 y  356.59 time 2728486 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  881.17 y  344.10 time 2728487 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  915.91 y  337.41 time 2728488 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  942.50 y  334.41 time 2728489 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  958.81 y  333.08 time 2728490 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  968.32 y  332.48 time 2728491 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  968.32 y  332.48 time 2728491 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+stroke_end
+stroke_start
+pnt x  776.00 y  510.00 time 2728510 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  776.00 y  504.47 time 2728511 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  784.85 y  484.30 time 2728512 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  819.77 y  439.89 time 2728513 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  864.14 y  399.03 time 2728514 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  928.21 y  360.86 time 2728515 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  992.24 y  341.58 time 2728516 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1030.82 y  332.96 time 2728517 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1064.65 y  329.11 time 2728518 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1084.20 y  327.39 time 2728519 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1090.72 y  326.62 time 2728523 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1090.72 y  326.62 time 2728523 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+stroke_end
+stroke_start
+pnt x  904.00 y  466.00 time 2728543 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  904.00 y  464.89 time 2728544 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  904.00 y  458.87 time 2728545 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  904.00 y  448.43 time 2728546 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  910.63 y  432.71 time 2728547 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  922.45 y  422.36 time 2728548 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  944.32 y  414.42 time 2728549 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  971.79 y  410.87 time 2728550 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  990.71 y  411.49 time 2728551 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1005.80 y  416.20 time 2728552 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1016.97 y  423.83 time 2728553 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1021.96 y  430.56 time 2728554 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1024.20 y  434.67 time 2728555 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1025.19 y  437.62 time 2728556 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1022.32 y  438.93 time 2728557 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1022.32 y  438.93 time 2728557 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+stroke_end
+stroke_start
+pnt x  932.00 y  458.00 time 2728577 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  934.21 y  458.00 time 2728581 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  949.58 y  455.79 time 2728582 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  969.72 y  454.80 time 2728583 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  993.10 y  456.57 time 2728584 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1012.40 y  462.89 time 2728585 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1027.66 y  471.24 time 2728586 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1037.80 y  482.72 time 2728587 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1042.34 y  494.49 time 2728588 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1042.15 y  505.28 time 2728589 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1033.22 y  514.52 time 2728590 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1013.74 y  526.40 time 2728591 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  993.98 y  533.92 time 2728592 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  969.66 y  539.49 time 2728593 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  949.94 y  541.98 time 2728594 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  935.59 y  543.10 time 2728595 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  935.59 y  543.10 time 2728595 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+stroke_end
+stroke_start
+pnt x  932.00 y  512.00 time 2728609 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  933.11 y  509.79 time 2728610 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  938.02 y  505.48 time 2728611 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  946.86 y  502.45 time 2728612 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  961.87 y  501.09 time 2728613 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  980.74 y  503.80 time 2728614 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  998.03 y  518.29 time 2728615 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1011.28 y  535.82 time 2728616 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1019.42 y  556.93 time 2728617 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1023.06 y  580.75 time 2728618 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1020.26 y  599.14 time 2728619 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1011.27 y  609.57 time 2728620 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  992.87 y  617.55 time 2728621 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  972.48 y  621.11 time 2728622 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  956.73 y  622.71 time 2728623 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  945.27 y  620.11 time 2728624 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  945.27 y  620.11 time 2728624 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+stroke_end
+stroke_start
+pnt x  998.00 y  608.00 time 2728646 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  999.11 y  608.00 time 2728646 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1002.92 y  608.00 time 2728647 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1011.26 y  608.00 time 2728648 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1021.62 y  608.00 time 2728649 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1031.78 y  610.21 time 2728650 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1039.64 y  615.62 time 2728651 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1046.48 y  625.79 time 2728652 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1050.64 y  639.18 time 2728653 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1052.50 y  656.22 time 2728654 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1052.22 y  672.69 time 2728656 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1043.25 y  688.89 time 2728657 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1022.65 y  700.57 time 2728658 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  986.90 y  705.78 time 2728659 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  944.37 y  700.37 time 2728660 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  904.35 y  681.36 time 2728661 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  880.93 y  666.23 time 2728662 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  860.51 y  649.51 time 2728663 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  860.51 y  649.51 time 2728663 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+stroke_end
+stroke_start
+pnt x  956.00 y  620.00 time 2728678 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  957.11 y  620.00 time 2728679 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  962.02 y  618.89 time 2728680 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  974.18 y  621.71 time 2728681 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  987.35 y  630.72 time 2728682 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1000.98 y  643.59 time 2728683 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1013.71 y  662.62 time 2728684 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1020.50 y  686.61 time 2728685 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1023.54 y  707.29 time 2728686 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1014.95 y  724.27 time 2728687 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  984.56 y  739.60 time 2728688 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  937.80 y  746.46 time 2728689 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  877.08 y  746.20 time 2728690 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  824.50 y  731.71 time 2728691 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  785.51 y  714.18 time 2728692 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  760.34 y  698.59 time 2728693 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  760.34 y  698.59 time 2728693 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+stroke_end
+stroke_start
+pnt x  966.00 y  660.00 time 2728707 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  967.11 y  660.00 time 2728708 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  967.60 y  661.11 time 2728709 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  967.82 y  667.13 time 2728710 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  966.81 y  678.67 time 2728711 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  956.41 y  691.57 time 2728712 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  927.43 y  705.08 time 2728713 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  881.29 y  715.54 time 2728714 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  786.57 y  719.11 time 2728715 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  717.68 y  709.65 time 2728716 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  666.98 y  694.36 time 2728717 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  635.47 y  681.99 time 2728718 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  615.86 y  672.04 time 2728719 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  615.86 y  672.04 time 2728719 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+stroke_end
+stroke_start
+pnt x  760.00 y  676.00 time 2728741 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  760.00 y  673.79 time 2728741 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  760.00 y  666.16 time 2728742 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  757.79 y  652.80 time 2728743 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  751.27 y  631.34 time 2728744 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  741.72 y  606.27 time 2728745 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  731.92 y  576.26 time 2728746 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  723.11 y  548.46 time 2728747 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  716.97 y  519.45 time 2728748 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  713.11 y  485.47 time 2728749 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  718.03 y  453.69 time 2728750 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  736.81 y  428.42 time 2728751 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  780.60 y  410.49 time 2728752 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  836.67 y  402.48 time 2728753 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  882.75 y  408.85 time 2728754 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  919.94 y  423.86 time 2728755 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  945.41 y  446.06 time 2728756 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  959.01 y  469.25 time 2728757 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  959.01 y  469.25 time 2728757 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+stroke_end
+stroke_start
+pnt x  930.00 y  506.00 time 2728768 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  922.26 y  506.00 time 2728769 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  913.27 y  499.36 time 2728770 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  908.14 y  478.70 time 2728771 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  908.06 y  455.09 time 2728772 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  924.62 y  429.05 time 2728773 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x  969.62 y  410.77 time 2728774 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1051.67 y  407.03 time 2728775 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1119.32 y  425.26 time 2728776 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1176.10 y  461.06 time 2728777 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1213.65 y  504.71 time 2728778 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1230.43 y  539.71 time 2728779 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1237.93 y  570.84 time 2728780 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1233.55 y  598.02 time 2728781 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1224.95 y  614.60 time 2728782 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1214.47 y  626.43 time 2728783 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1204.25 y  635.04 time 2728784 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+pnt x 1204.25 y  635.04 time 2728784 prs 1.00 tlt 0.50 brg 0.25 whl 1.00 rot 0.00
+stroke_end
+end_time date Wed, May 24, 2017 time 7:35 PM

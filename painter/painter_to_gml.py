@@ -4,7 +4,7 @@ from operator import itemgetter
 
 def painter_to_gml():
     outputFile = []
-
+    fps = 60
     file = readTextFile(inputDir)
     '''
     if (root.tag.lower() != "gml"):
@@ -12,45 +12,64 @@ def painter_to_gml():
         return
     '''
     #~
-    outputFile.append(gmlHeader())
     file = file.splitlines(file.count("\r"))
+    firstTime = 0.0
     strokesEl = []
     strokeEl = []
+    painterHeader = ""
     for line in file:
-    	if (line.startswith("stroke_start")):
+        if (line.startswith("new_3")):
+            painterHeader = line
+        elif (line.startswith("stroke_start")):
             strokeEl = []
         elif(line.startswith("pnt")):
-        	strokeEl.append(line)
+            strokeEl.append(line)
         elif(line.startswith("stroke_end")):
-        	strokesEl.append(strokeEl)
+            strokesEl.append(strokeEl)
+        else:
+            pass
+    
+    dim = (640, 480, 0)
+    if (painterHeader):
+        dim = extractPainterDim(painterHeader)
 
-    '''
-    header = tag.find("header")
-    drawing = tag.find("drawing")
-    environment = header.find("environment")
-    if not environment:
-        environment = tag.find("environment")
-    screenBounds = environment.find("screenBounds")
-    globalScale = (1,1,1)
-    dim = (float(screenBounds.find("x").text) * globalScale[0], float(screenBounds.find("y").text) * globalScale[1], float(screenBounds.find("z").text) * globalScale[2])
-    #~
     outputFile.append(gmlHeader(dim))
-    #~
-    strokes = drawing.findall("stroke")
-    for stroke in strokes:
+
+    for strokeEl in strokesEl:
         points = []
-        pointsEl = stroke.findall("pt")
-        for pointEl in pointsEl:
-            x = float(pointEl.find("x").text) * dim[0] 
-            y = float(pointEl.find("y").text) * dim[1]
-            z = float(pointEl.find("z").text) * dim[2]
-            time = float(pointEl.find("time").text)
-            point = (x, y, z, time)
-            points.append(point)
+        for pointEl in strokeEl:
+            point = extractPainterLine(pointEl)
+            if (point):
+                if (firstTime == 0.0):
+                    firstTime = point[3]
+                point = (point[0]/dim[0], point[1]/dim[1], 0.0, (point[3] - firstTime) * 1.0/float(fps))
+                points.append(point)
         outputFile.append(gmlStroke(points))
-    '''
+
     outputFile.append(gmlFooter())
     writeTextFile(outputDir + "output.gml", outputFile)
+
+def extractPainterLine(line):
+    returns = line.split(" ")
+    for s in returns:
+        if (s==""):
+            returns.remove(s)
+    try:
+        returns = (float(returns[2]), float(returns[4]), 0.0, float(returns[6]))
+        return returns
+    except:
+        return None
+
+def extractPainterDim(line):
+    returns = line.split(" ")
+    for s in returns:
+        if (s==""):
+            returns.remove(s)
+    try:
+        returns = (float(returns[3]), float(returns[5]), 0.0)
+        return returns
+    except:
+        return None    
 
 def writeTextFile(name="test.txt", lines=None):
     file = open(name,"w") 
@@ -73,7 +92,7 @@ def gmlHeader(dim=(1024,1024,1024)):
     s += "\t<tag>" + "\r"
     s += "\t\t<header>" + "\r"
     s += "\t\t\t<client>" + "\r"
-    s += "\t\t\t\t<name>KinectToPin</name>" + "\r"
+    s += "\t\t\t\t<name>CorelPainter</name>" + "\r"
     s += "\t\t\t</client>" + "\r"
     s += "\t\t\t<environment>" + "\r"
     s += "\t\t\t\t<up>" + "\r"
@@ -105,7 +124,8 @@ def gmlStroke(points):
     return s
 
 def gmlPoint(point):
-    s = "\t\t\t\t<pt id=\"" + point[4] + "\">" + "\r"
+    #s = "\t\t\t\t<pt id=\"" + point[4] + "\">" + "\r"
+    s = "\t\t\t\t<pt>" + "\r"
     s += "\t\t\t\t\t<x>" + str(point[0]) + "</x>" + "\r"
     s += "\t\t\t\t\t<y>" + str(point[1]) + "</y>" + "\r"
     s += "\t\t\t\t\t<z>" + str(point[2]) + "</z>" + "\r"
