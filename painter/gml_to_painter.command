@@ -10,7 +10,6 @@ DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
 cd $DIR
 
-INPUT=../test_files/k2p_xml/example.xml
-JOINTS=all
+INPUT=example.obj
 
-python k2p_to_gml.py -- $DIR/$INPUT $DIR/ $JOINTS
+python gml_to_painter.py -- $DIR/$INPUT
