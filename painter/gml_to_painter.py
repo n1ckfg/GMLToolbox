@@ -25,16 +25,18 @@ def gml_to_painter():
     #~
     outputFile.append(painterHeader(dim))
     #~
+    counter = 0
     strokes = drawing.findall("stroke")
     for stroke in strokes:
         points = []
         pointsEl = stroke.findall("pt")
         for pointEl in pointsEl:
-            x = float(pointEl.find("x").text) * dim[0] 
-            y = float(pointEl.find("y").text) * dim[1]
-            z = float(pointEl.find("z").text) * dim[2]
+            x = roundVal(float(pointEl.find("x").text) * dim[0], 2) 
+            y = roundVal(float(pointEl.find("y").text) * dim[1], 2)
+            z = roundVal(float(pointEl.find("z").text) * dim[2], 2)
             time = float(pointEl.find("time").text)
-            point = (x, y, z, time)
+            point = (x, y, z, counter)
+            counter += 1
             points.append(point)
         outputFile.append(painterStroke(points))
     outputFile.append(painterFooter())
@@ -51,7 +53,15 @@ def remap(value, min1, max1, min2, max2):
     range2 = max2 - min2
     valueScaled = float(value - min1) / float(range1)
     return min2 + (valueScaled * range2)
-    
+
+def roundVal(a, b):
+    formatter = "{0:." + str(b) + "f}"
+    return formatter.format(a)
+
+def roundValInt(a):
+    formatter = "{0:." + str(0) + "f}"
+    return int(formatter.format(a))
+
 def painterHeader(dim=(1024,1024,1024)):
     s = "script_version_number version 10" + "\r"
     s += "artist_name \"\"" + "\r"
@@ -83,7 +93,7 @@ def painterHeader(dim=(1024,1024,1024)):
     s += "color red 1 green 109 blue 255" + "\r"
     s += "background_color red 255 green 4 blue 4" + "\r"
     s += "change_file \"ntitled-1\"" + "\r"
-    s += "new_3 \"Untitled-1\" width " + str(dim[0]) + " height " + str(dim[1]) + " resolution   72.00000 width_unit 1 height_unit 1 resolution_unit 1 paper_color red 255 green 255 blue 255 movie 0 frames 1" + "\r"
+    s += "new_3 \"Untitled-1\" width " + str(int(dim[0])) + " height " + str(int(dim[1])) + " resolution   72.00000 width_unit 1 height_unit 1 resolution_unit 1 paper_color red 255 green 255 blue 255 movie 0 frames 1" + "\r"
     return s
 
 def painterFooter():
@@ -101,7 +111,7 @@ def painterPoint(point):
     x = point[0]
     y = point[1]
     time = point[3]
-    s = "pnt x " + str(x) + " y " + str(y) + " time " + str(time) + " prs 1.00 tlt 0.00 brg 0.00 whl 1.00 rot 0.00" + "\r"
+    s = "pnt x  " + str(x) + " y  " + str(y) + " time " + str(time) + " prs 1.00 tlt 0.00 brg 0.00 whl 1.00 rot 0.00" + "\r"
     return s
 
  # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
