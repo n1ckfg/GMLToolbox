@@ -10,6 +10,6 @@ DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
 cd $DIR
 
-INPUT=example.obj
+INPUT=../test_files/gml/output_r_hand.gml
 
-python gml_to_painter.py -- $DIR/$INPUT
+python gml_to_painter.py -- $DIR/$INPUT $DIR/
