@@ -1,14 +1,15 @@
 * Mac + Win + Linux
 Blender: Python addon w/GUI; import GML
 KinectToPin: Python script; convert K2P XML -> GML
-p5.js: Example project; import GML
-Processing: Example project; import GML
+p5.js: JS example project; import GML
+Painter: Python script; import and export GML
+Processing: Java example project; import GML
 VRDoodler: Python script; convert .obj -> GML
 
 * Mac + Win
 After Effects: JS panel w/GUI; import GML
 
-* Win only
+* Win
 Tilt Brush: Python script; convert .tilt -> GML
 
 * Placeholders
