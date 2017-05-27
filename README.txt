@@ -1,6 +1,7 @@
 * Mac + Win + Linux
 Blender: Python addon w/GUI; import GML
 KinectToPin: Python script; convert K2P XML -> GML
+Maya: Python script w/ GUI; import GML
 p5.js: JS example; import GML
 Painter: Python scripts; convert Painter <-> GML
 Processing: Java example; import GML
