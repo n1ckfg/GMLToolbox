@@ -5,7 +5,7 @@ import binvox_rw
 import numpy as np
 
 def gml_to_binvox():
-    outputFile = []
+    outputData = []
 
     tree = etree.parse(inputDir)
     root = tree.getroot()
@@ -15,7 +15,6 @@ def gml_to_binvox():
         return
     '''
     #~
-    '''
     tag = root.find("tag")
     header = tag.find("header")
     drawing = tag.find("drawing")
@@ -23,41 +22,51 @@ def gml_to_binvox():
     if not environment:
         environment = tag.find("environment")
     screenBounds = environment.find("screenBounds")
-    globalScale = (1,1,1)
-    dim = (float(screenBounds.find("x").text) * globalScale[0], float(screenBounds.find("y").text) * globalScale[1], float(screenBounds.find("z").text) * globalScale[2])
+    #globalScale = (1.0,1.0,1.0)
+    #dim = (float(screenBounds.find("x").text) * globalScale[0], float(screenBounds.find("y").text) * globalScale[1], float(screenBounds.find("z").text) * globalScale[2])
+    dim = (40.0,40.0,40.0)
     #~
-    outputFile.append(painterHeader(dim))
-    #~
-    counter = 0
     strokes = drawing.findall("stroke")
     for stroke in strokes:
-        points = []
         pointsEl = stroke.findall("pt")
         for pointEl in pointsEl:
-            x = roundVal(float(pointEl.find("x").text) * dim[0], 2) 
-            y = roundVal(float(pointEl.find("y").text) * dim[1], 2)
-            z = roundVal(float(pointEl.find("z").text) * dim[2], 2)
+            x = float(pointEl.find("x").text) - 0.5
+            y = float(pointEl.find("y").text) - 0.5
+            z = float(pointEl.find("z").text) - 0.5
             time = float(pointEl.find("time").text)
-            point = (x, y, z, counter)
-            counter += 1
-            points.append(point)
-        outputFile.append(painterStroke(points))
-    outputFile.append(painterFooter())
-    writeTextFile(outputDir + "output.txt", outputFile)
+            point = (x, y, z)
+            outputData.append(point)
+    
     '''
+    # 2D example
     data = np.array([
-    	[[0.5, 0.5, 0.5],[0.5, 0.5, 0.5],[0.5, 0.5, 0.5],[0.5, 0.5, 0.5]],
-    	[[0.5, 0.5, 0.5],[0.5, 0.5, 0.5],[0.5, 0.5, 0.5],[0.5, 0.5, 0.5]],
-    	[[0.5, 0.5, 0.5],[0.5, 0.5, 0.5],[0.5, 0.5, 0.5],[0.5, 0.5, 0.5]],
-    	[[0.5, 0.5, 0.5],[0.5, 0.5, 0.5],[0.5, 0.5, 0.5],[0.5, 0.5, 0.5]]
+        (0.1, 0.2, 0.3), (0.2, 0.3, 0.4), (0.3, 0.4, 0.1), (0.4, 0.1, 0.2),
+        (0.2, 0.2, 0.2), (0.3, 0.3, 0.3), (0.4, 0.4, 0.4), (0.1, 0.1, 0.1),
+        (0.3, 0.3, 0.3), (-2.0, 2.0, 0.4), (0.1, 0.1, 0.1), (0.2, 0.2, 0.2),
+        (0.4, 0.4, 0.4), (2.45, 0.9, 0.9), (0.2, 0.2, 0.2), (0.1, 0.1, 0.1)
     ], np.float32)
-    print(data.dtype)
-    dims = [4,4,4]
-    translate = [0.0, 0.0, 0.0]
+    
+    # 3D example
+    data = np.array([
+        [ [True, False, False, False], [False, True, False, False], [False, False, True, False], [False, False, False, True] ],
+        [ [False, True, False, False], [False, False, True, False], [False, False, False, True], [True, False, False, False] ],
+        [ [False, False, True, False], [False, False, False, True], [True, False, False, False], [False, True, False, False] ],
+        [ [False, False, False, True], [True, False, False, False], [False, True, False, False], [False, False, True, False] ]
+    ], np.bool)
+    '''
+    data = np.array([outputData], np.float32)
+    if (data.ndim == 2):
+        data.shape = (3,len(data))
+    dims = [int(dim[0]), int(dim[0]), int(dim[0])] 
+    translate = [0.0,0.0,0.0]
     scale = 40.0
     axis_order = "xyz"
+
     model = binvox_rw.Voxels(data, dims, translate, scale, axis_order)
-    model.write(fp="test.binvox")
+      
+    with open("test.binvox", "w") as f:
+        print("Writing " + str(model.data.ndim) + "D array.")
+        model.write(f)
 
 def writeTextFile(name="test.txt", lines=None):
     file = open(name,"w") 
