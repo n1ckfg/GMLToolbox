@@ -2,6 +2,7 @@ import sys as sys
 import xml.etree.ElementTree as etree
 from operator import itemgetter
 import binvox_rw
+import numpy as np
 
 def gml_to_binvox():
     outputFile = []
@@ -44,22 +45,19 @@ def gml_to_binvox():
     outputFile.append(painterFooter())
     writeTextFile(outputDir + "output.txt", outputFile)
     '''
-    with open('test.binvox', 'wb') as f:
-        data = [[[ True, False, False, False, False, False],
-            [True, False, False, False, False, False],
-            [True, False, False, False, False, False],
-           [[False, False, False, False, False, False],
-            [False, False, False, False, False, False],
-            [False, False, False, False, False, False],
-            [False, False, False, False, False, False],
-            [False, False, False, False, False, False],
-            [False, False, False, False, False, False]]]]
-    	dims = [32, 32, 32]
-    	translate = [0.0, 0.0, 0.0]
-    	scale = 40.0
-    	axis_order = 'xyz'
-        model = binvox_rw.Voxels(data, dims, translate, scale, axis_order)
-        model.write('test.binvox')
+    data = np.array([
+    	[[0.5, 0.5, 0.5],[0.5, 0.5, 0.5],[0.5, 0.5, 0.5],[0.5, 0.5, 0.5]],
+    	[[0.5, 0.5, 0.5],[0.5, 0.5, 0.5],[0.5, 0.5, 0.5],[0.5, 0.5, 0.5]],
+    	[[0.5, 0.5, 0.5],[0.5, 0.5, 0.5],[0.5, 0.5, 0.5],[0.5, 0.5, 0.5]],
+    	[[0.5, 0.5, 0.5],[0.5, 0.5, 0.5],[0.5, 0.5, 0.5],[0.5, 0.5, 0.5]]
+    ], np.float32)
+    print(data.dtype)
+    dims = [4,4,4]
+    translate = [0.0, 0.0, 0.0]
+    scale = 40.0
+    axis_order = "xyz"
+    model = binvox_rw.Voxels(data, dims, translate, scale, axis_order)
+    model.write(fp="test.binvox")
 
 def writeTextFile(name="test.txt", lines=None):
     file = open(name,"w") 

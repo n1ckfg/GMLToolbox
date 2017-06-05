@@ -10,6 +10,6 @@ DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
 cd $DIR
 
-INPUT=../test_files/gml/output_r_hand.gml
+INPUT=../test_files/gml/k2p_r_hand.gml
 
 python gml_to_binvox.py -- $DIR/$INPUT $DIR/
