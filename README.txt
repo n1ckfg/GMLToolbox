@@ -1,21 +1,22 @@
 * Mac + Win + Linux
-Blender: Python addon w/GUI; import GML
-KinectToPin: Python script; convert K2P XML -> GML
-Maya: Python script w/ GUI; import GML
-p5.js: JS example; import GML
-Painter: Python scripts; convert Painter <-> GML
-Processing: Java example; import GML
-VRDoodler: Python script; convert .obj -> GML
+1. binvox: Python script; convert GML -> binvox
+2. Blender: Python addon w/GUI; import GML
+3. KinectToPin: Python script; convert K2P XML -> GML
+4. Maya: Python script; import GML
+5. p5.js: JS example; import GML
+6. Painter: Python scripts; convert Painter <-> GML
+7. Processing: Java example; import GML
+8. VRDoodler: Python script; convert .obj -> GML
 
 * Mac + Win
-After Effects: JS panel w/GUI; import GML
+9. After Effects: JS panel w/GUI; import GML
 
 * Win
-Tilt Brush: Python script; convert .tilt -> GML
+10. Tilt Brush: Python script; convert .tilt -> GML
 
 * Placeholders
-oF
-three.js
-Unity
-Unreal
-svg
+11. oF
+12. three.js
+13. Unity
+14. Unreal
+15. svg
