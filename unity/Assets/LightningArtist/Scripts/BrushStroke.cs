@@ -9,10 +9,12 @@ public class BrushStroke : MonoBehaviour {
 	public Material[] mat;
 	public float brushSize = 0.008f;
 	public Color brushColor = new Color(0.5f, 0.5f, 0.5f);
+	public Color brushEndColor = new Color(0.5f, 0.5f, 0.5f);
 	public float brushBrightness = 1f;
 	public Vector3 globalScale = new Vector3 (1f, 1f, 1f);
 	public Vector3 globalOffset = Vector3.zero;
 	public bool useScaleAndOffset = false;
+	public float birthTime = 0f;
 
 	[HideInInspector] public bool isDirty = false;
 	[HideInInspector] public LineRenderer lineRenderer;
@@ -22,6 +24,7 @@ public class BrushStroke : MonoBehaviour {
 		lineRenderer = GetComponent<LineRenderer>();
 		lineRenderer.enabled = false;
 		lineRenderer.sharedMaterial = mat[(int) brushMode];
+		birthTime = Time.realtimeSinceStartup;
 	}
 
 	void Update() {
@@ -38,7 +41,8 @@ public class BrushStroke : MonoBehaviour {
 		if (points != null) {
 			if (points.Count > 1) lineRenderer.enabled = true;
 
-			lineRenderer.SetVertexCount(points.Count);
+            //lineRenderer.SetVertexCount(points.Count);
+            lineRenderer.positionCount = points.Count;
             //for (int i=0; i<points.Count; i++) {
             //lineRenderer.SetPosition(i, points[i]);
             //}
@@ -81,7 +85,11 @@ public class BrushStroke : MonoBehaviour {
 			colorString = "_Color";
 		}
 
-		if (lineRenderer) lineRenderer.material.SetColor(colorString, changeBrightness(brushColor, brushBrightness));		
+		if (lineRenderer) {
+			lineRenderer.material.SetColor(colorString, changeBrightness(brushColor, brushBrightness));	
+			lineRenderer.startColor = brushEndColor;
+			lineRenderer.endColor = brushColor;
+		}
 	}
 
 	Color changeBrightness(Color c, float f) {

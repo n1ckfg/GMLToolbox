@@ -44,6 +44,11 @@ public class LightningArtist : MonoBehaviour {
 	public Animator animator;
 	public Renderer floorRen;
 	public Color mainColor = new Color(0.5f, 0.5f, 0.5f);
+	public Color endColor = new Color(0.5f, 0.5f, 0.5f);
+	public bool useEndColor = false;
+	public int drawTrailLength = 4;
+	public float strokeLife = 5f;
+	public bool killStrokes = false;
 
 	public string readFileName = "brushstrokes-saved.json";
 	public bool readOnStart = false;
@@ -178,6 +183,13 @@ public class LightningArtist : MonoBehaviour {
 					if (animVal > 1f) animVal = 1f;
 
 					for (int i = 0; i < layerList.Count; i++) {
+						// ~ ~ ~ ~ ~
+						if (killStrokes) {
+							if (layerList[i].frameList[layerList[i].currentFrame].brushStrokeList.Count > 0 && Time.realtimeSinceStartup > layerList[i].frameList[layerList[i].currentFrame].brushStrokeList[0].birthTime + strokeLife) {
+								inputEraseFirstStroke(); 
+							}
+						}
+						// ~ ~ ~ ~ ~
 						layerList[i].frameList[layerList[i].currentFrame].showFrame (false);
 						layerList[i].currentFrame++;
 
@@ -224,7 +236,7 @@ public class LightningArtist : MonoBehaviour {
 				beginStroke();
                 if (drawWhilePlaying && isPlaying && layerList[currentLayer].frameList.Count > 1 && layerList[currentLayer].frameList[layerList[currentLayer].previousFrame].brushStrokeList.Count > 0) {
                     BrushStroke lastStroke = layerList[currentLayer].frameList[layerList[currentLayer].previousFrame].brushStrokeList[layerList[currentLayer].frameList[layerList[currentLayer].previousFrame].brushStrokeList.Count - 1];
-                    for (int pts = lastStroke.points.Count / 4; pts < lastStroke.points.Count - 1; pts++) {
+					for (int pts = lastStroke.points.Count / drawTrailLength; pts < lastStroke.points.Count - 1; pts++) {
                         layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList[layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList.Count - 1].points.Add(lastStroke.points[pts]);
                     }
                 }
@@ -259,7 +271,7 @@ public class LightningArtist : MonoBehaviour {
 	void beginStroke() {
 		if (!drawWhilePlaying) isPlaying = false;
 		isDrawing = true;
-		instantiateStroke();
+		instantiateStroke(mainColor);
 		layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList[layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList.Count - 1].setBrushColor(mainColor);
 	}
 
@@ -284,7 +296,7 @@ public class LightningArtist : MonoBehaviour {
 		float range = 5f;
 
 		for (int i=0; i<numStrokes; i++) {
-			instantiateStroke();
+			instantiateStroke(mainColor);
 			randomStroke(layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList[layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList.Count-1], numSegments, range);
 		}
 	}
@@ -414,36 +426,39 @@ public class LightningArtist : MonoBehaviour {
 		}
 	}
 
+	/*
 	void instantiateStroke() {
-		GameObject g = (GameObject) Instantiate(brushPrefab, new Vector3(0f, 0f, 0f), Quaternion.identity);
-		BrushStroke b = g.GetComponent<BrushStroke>();
+		BrushStroke b = Instantiate(brushPrefab).GetComponent<BrushStroke>();
 		b.brushMode = (BrushStroke.BrushMode) brushMode;
 		b.brushSize = brushSize;
 		b.transform.SetParent(layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].transform);
 		layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList.Add(b);	
 	}
+	*/
 
 	void instantiateStroke(Color c) {
-		GameObject g = (GameObject) Instantiate(brushPrefab, Vector3.zero, Quaternion.identity);
-		BrushStroke b = g.GetComponent<BrushStroke>();
+		BrushStroke b = Instantiate(brushPrefab).GetComponent<BrushStroke>();
 		b.brushMode = (BrushStroke.BrushMode) brushMode;
 		b.brushSize = brushSize;
 		b.brushColor = c;
+		if (useEndColor) {
+			b.brushEndColor = endColor;
+		} else {
+			b.brushEndColor = c;
+		}
 		b.transform.SetParent(layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].transform);
 		layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList.Add(b);	
 	}
 
 	void instantiateFrame() {
-		GameObject g = (GameObject) Instantiate(framePrefab, Vector3.zero, Quaternion.identity);
-		BrushFrame f = g.GetComponent<BrushFrame>();
+		BrushFrame f = Instantiate(framePrefab).GetComponent<BrushFrame>();
 		f.transform.SetParent(layerList[currentLayer].transform);
 		layerList[currentLayer].frameList.Add(f);
 		longestLayer = getLongestLayer();
 	}
 
 	void instantiateLayer() {
-		GameObject g = (GameObject) Instantiate(layerPrefab, Vector3.zero, Quaternion.identity);
-		BrushLayer l = g.GetComponent<BrushLayer>();
+		BrushLayer l = Instantiate(layerPrefab).GetComponent<BrushLayer>();
 		l.transform.SetParent(transform);
 		layerList.Add(l);
 		Debug.Log ("layerList has " + layerList.Count + " layers.");
@@ -768,6 +783,11 @@ public class LightningArtist : MonoBehaviour {
 		layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList.RemoveAt(layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList.Count - 1); 
 	}
 
+	void eraseFirstStroke() {
+		Destroy(layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList[0].gameObject);
+		layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList.RemoveAt(0); 
+	}
+
 	void doPush() {
 		isPlaying = false;
 
@@ -811,7 +831,7 @@ public class LightningArtist : MonoBehaviour {
 	void copyFramePointsForward(int index) {
 		Debug.Log("Before copy (" + index + "): " + layerList[currentLayer].frameList[index - 1].brushStrokeList.Count + " " + layerList[currentLayer].frameList[index].brushStrokeList.Count);
 		for (int i = 0; i < layerList[currentLayer].frameList[index - 1].brushStrokeList.Count; i++) {
-			instantiateStroke();
+			instantiateStroke(mainColor);
 			layerList[currentLayer].frameList[index].brushStrokeList[i].points = layerList[currentLayer].frameList[index - 1].brushStrokeList[i].points;
 			layerList[currentLayer].frameList[index].brushStrokeList[i].brushColor = layerList[currentLayer].frameList[index - 1].brushStrokeList[i].brushColor;
 			layerList[currentLayer].frameList[index].brushStrokeList[i].isDirty = true;
@@ -925,6 +945,10 @@ public class LightningArtist : MonoBehaviour {
 
 	public void inputEraseLastStroke() {
 		eraseLastStroke();
+	}
+
+	public void inputEraseFirstStroke() {
+		eraseFirstStroke();
 	}
 
 	public void inputPush() {
