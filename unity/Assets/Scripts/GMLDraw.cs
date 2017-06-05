@@ -9,6 +9,7 @@ public class GMLDraw : MonoBehaviour {
     public LADrawing latkd;
     public enum GMLMode { READ_STILL, READ_DRAW, WRITE };
     public GMLMode gmlMode = GMLMode.READ_STILL;
+    public int drawFrames = 24;
     public string fileName;
     public Vector3 globalScale = new Vector3(0.01f, 0.01f, 0.01f);
 
@@ -16,20 +17,46 @@ public class GMLDraw : MonoBehaviour {
 
     private XmlDocument xml; 
     private string url;
+    private bool ready = false;
+    private int strokeCounter = 0;
+    private int pointCounter = 0;
 
 	void Start() {
         url = Application.dataPath + "/StreamingAssets/" + fileName;
+
+        if (gmlMode == GMLMode.READ_DRAW) {
+            for (int i=0; i<drawFrames; i++) {
+                latk.inputNewFrame();
+            }
+            latk.inputPlay();
+        }
+
         StartCoroutine(LoadGML(url));
     }
 
     void Update() {
-		
+		if (ready && gml.strokes.Count > 0 && gml.strokes[0].points.Count > 1) {
+            latk.clicked = true;
+            latk.target.transform.position = Vector3.Lerp(latk.target.transform.position, gml.strokes[strokeCounter].points[pointCounter].pt, Time.deltaTime);
+            if (Time.realtimeSinceStartup > gml.strokes[strokeCounter].points[pointCounter].time) {
+                if (pointCounter < gml.strokes[strokeCounter].points.Count - 1) {
+                    pointCounter++;
+                } else {
+                    if (strokeCounter < gml.strokes.Count - 1) {
+                        strokeCounter++;
+                        pointCounter = 0;
+                    } else {
+                        ready = false;
+                    }
+                }
+            }
+        }
 	}
 
     // https://forum.unity3d.com/threads/xml-reading-a-xml-file-in-unity-how-to-do-it.44441/
 
     IEnumerator LoadGML(string url) {
-        GML gml = new GML();
+        gml = new GML();
         xml = new XmlDocument();
         xml.Load(url);
         yield return xml;
@@ -63,32 +90,13 @@ public class GMLDraw : MonoBehaviour {
             gml.strokes.Add(stroke);
         }
 
-        for (int i=0; i<gml.strokes.Count; i++) {
-            latkd.makeCurve(gml.strokes[i].getPoints());
-        }
-    }
-
-    public class GML {
-        public Vector3 screenBounds = Vector3.one;
-        public Vector3 up = new Vector3(0f, 1f, 0f);
-        public List<GMLStroke> strokes = new List<GMLStroke>();
-    }
-
-    public class GMLStroke {
-        public List<GMLPoint> points = new List<GMLPoint>();
-
-        public List<Vector3> getPoints() {
-            List<Vector3> returns = new List<Vector3>();
-            for (int i=0; i<points.Count; i++) {
-               returns.Add(points[i].pt);
+        if (gmlMode == GMLMode.READ_STILL) {
+            for (int i = 0; i < gml.strokes.Count; i++) {
+                latkd.makeCurve(gml.strokes[i].getPoints());
             }
-            return returns;
+        } else if (gmlMode == GMLMode.READ_DRAW) {
+            ready = true;
         }
-    }
-
-    public class GMLPoint {
-        public Vector3 pt = Vector3.zero;
-        public float time = 0f;
     }
 
 }
