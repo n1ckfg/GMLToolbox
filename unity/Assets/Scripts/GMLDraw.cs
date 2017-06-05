@@ -10,6 +10,8 @@ public class GMLDraw : MonoBehaviour {
     public enum GMLMode { READ_STILL, READ_DRAW, WRITE };
     public GMLMode gmlMode = GMLMode.READ_STILL;
     public int drawFrames = 24;
+    public float drawSpeed = 1f;
+    public bool playWhileDrawing = true;
     public string fileName;
     public Vector3 globalScale = new Vector3(0.01f, 0.01f, 0.01f);
 
@@ -28,7 +30,7 @@ public class GMLDraw : MonoBehaviour {
             for (int i=0; i<drawFrames; i++) {
                 latk.inputNewFrame();
             }
-            latk.inputPlay();
+            if (playWhileDrawing) latk.inputPlay();
         }
 
         StartCoroutine(LoadGML(url));
@@ -36,16 +38,18 @@ public class GMLDraw : MonoBehaviour {
 
     void Update() {
 		if (ready && gml.strokes.Count > 0 && gml.strokes[0].points.Count > 1) {
-            latk.clicked = true;
-            latk.target.transform.position = Vector3.Lerp(latk.target.transform.position, gml.strokes[strokeCounter].points[pointCounter].pt, Time.deltaTime);
+            latk.clicked = true; 
+            latk.target.transform.position = Vector3.Lerp(latk.target.transform.position, gml.strokes[strokeCounter].points[pointCounter].pt, Time.deltaTime/drawSpeed);
             if (Time.realtimeSinceStartup > gml.strokes[strokeCounter].points[pointCounter].time) {
                 if (pointCounter < gml.strokes[strokeCounter].points.Count - 1) {
                     pointCounter++;
                 } else {
                     if (strokeCounter < gml.strokes.Count - 1) {
+                        latk.clicked = false;
                         strokeCounter++;
                         pointCounter = 0;
                     } else {
+                        latk.clicked = false;
                         ready = false;
                     }
                 }

@@ -216,6 +216,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightningArtist: {fileID: 0}
+--- !u!114 &490440163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 490440160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acf4d481b0b96b34ea4131ea70e7b493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brushPrefab: {fileID: 11487128, guid: beb8a1e04a58a4494ae8870cdc802e88, type: 2}
+  color: {r: 1, g: 0, b: 0, a: 1}
+  brushSize: 0.05
+  gridRows: 10
+  gridColumns: 10
+  gridCell: 0.1
 --- !u!1 &510380726
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,7 +335,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1202843965}
   - component: {fileID: 1202843964}
-  - component: {fileID: 1202843966}
   m_Layer: 0
   m_Name: GML_DRAW
   m_TagString: Untagged
@@ -338,9 +354,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   latk: {fileID: 62784435}
-  latkd: {fileID: 1202843966}
-  gmlMode: 0
+  latkd: {fileID: 490440163}
+  gmlMode: 1
   drawFrames: 8
+  drawSpeed: 0.05
+  playWhileDrawing: 1
   fileName: k2p_r_hand.gml
   globalScale: {x: 0.01, y: 0.01, z: 0.01}
 --- !u!4 &1202843965
@@ -356,23 +374,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1202843966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1202843963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acf4d481b0b96b34ea4131ea70e7b493, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  brushPrefab: {fileID: 11487128, guid: beb8a1e04a58a4494ae8870cdc802e88, type: 2}
-  color: {r: 1, g: 0, b: 0, a: 1}
-  brushSize: 0.05
-  gridRows: 10
-  gridColumns: 10
-  gridCell: 0.1
 --- !u!1 &1269265023
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,13 +458,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1269265023}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: -0, y: 0.23648526, z: -0, w: 0.9716351}
+  m_LocalPosition: {x: 0.25, y: 2.34, z: -1.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 27.358002, z: 0}
 --- !u!114 &1269265029
 MonoBehaviour:
   m_ObjectHideFlags: 0
