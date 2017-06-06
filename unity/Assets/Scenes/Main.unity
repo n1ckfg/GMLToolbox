@@ -150,7 +150,7 @@ Prefab:
     - target: {fileID: 11437508, guid: bd6b520ae512fe14284192c59b70f0f3, type: 2}
       propertyPath: target
       value: 
-      objectReference: {fileID: 510380726}
+      objectReference: {fileID: 510380727}
     - target: {fileID: 11437508, guid: bd6b520ae512fe14284192c59b70f0f3, type: 2}
       propertyPath: readOnStart
       value: 0
@@ -191,6 +191,21 @@ Prefab:
       propertyPath: drawWhilePlaying
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11437508, guid: bd6b520ae512fe14284192c59b70f0f3, type: 2}
+      propertyPath: framePrefab
+      value: 
+      objectReference: {fileID: 11408600, guid: a15481ca94e650549a5cb0e614ef8fe2,
+        type: 2}
+    - target: {fileID: 11437508, guid: bd6b520ae512fe14284192c59b70f0f3, type: 2}
+      propertyPath: layerPrefab
+      value: 
+      objectReference: {fileID: 114288204717375812, guid: a3f692cf9448fdf4dbc65e783fad83d1,
+        type: 2}
+    - target: {fileID: 11437508, guid: bd6b520ae512fe14284192c59b70f0f3, type: 2}
+      propertyPath: brushPrefab
+      value: 
+      objectReference: {fileID: 11487128, guid: beb8a1e04a58a4494ae8870cdc802e88,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd6b520ae512fe14284192c59b70f0f3, type: 2}
   m_IsPrefabParent: 0
@@ -227,6 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acf4d481b0b96b34ea4131ea70e7b493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  latk: {fileID: 62784435}
   brushPrefab: {fileID: 11487128, guid: beb8a1e04a58a4494ae8870cdc802e88, type: 2}
   color: {r: 1, g: 0, b: 0, a: 1}
   brushSize: 0.05

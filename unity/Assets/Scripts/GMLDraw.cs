@@ -39,7 +39,7 @@ public class GMLDraw : MonoBehaviour {
     void Update() {
 		if (ready && gml.strokes.Count > 0 && gml.strokes[0].points.Count > 1) {
             latk.clicked = true; 
-            latk.target.transform.position = Vector3.Lerp(latk.target.transform.position, gml.strokes[strokeCounter].points[pointCounter].pt, Time.deltaTime/drawSpeed);
+            latk.target.position = Vector3.Lerp(latk.target.position, gml.strokes[strokeCounter].points[pointCounter].pt, Time.deltaTime/drawSpeed);
             if (Time.realtimeSinceStartup > gml.strokes[strokeCounter].points[pointCounter].time) {
                 if (pointCounter < gml.strokes[strokeCounter].points.Count - 1) {
                     pointCounter++;

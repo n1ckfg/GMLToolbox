@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LADrawing : MonoBehaviour {
 
+    public LightningArtist latk;
 	public BrushStroke brushPrefab;
 	public Color color = new Color(1f, 0f, 0f);
 	public float brushSize = 0.05f;
@@ -11,6 +12,15 @@ public class LADrawing : MonoBehaviour {
     [HideInInspector] public int gridRows = 10;
     [HideInInspector] public int gridColumns = 10;
     [HideInInspector] public float gridCell = 0.1f;
+
+    void Awake() {
+        if (!latk) latk = GetComponent<LightningArtist>();
+        if (latk) {
+            brushPrefab = latk.brushPrefab;
+            color = latk.mainColor;
+            brushSize = latk.brushSize;
+        }
+    }
 
     void Start () {
 		//makeGrid(0f, gridCell);

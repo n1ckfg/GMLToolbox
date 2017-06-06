@@ -35,11 +35,11 @@ public class LightningArtist : MonoBehaviour {
 
 	public enum BrushMode { ADD, ALPHA };
 	public BrushMode brushMode = BrushMode.ADD;
-	public GameObject target;
-	public GameObject layerPrefab;
-	public GameObject brushPrefab;
-	public GameObject framePrefab;
-	public TextMesh textMesh;
+	public Transform target;
+	public BrushLayer layerPrefab;
+	public BrushFrame framePrefab;
+    public BrushStroke brushPrefab;
+    public TextMesh textMesh;
 	public AudioSource audio;
 	public Animator animator;
 	public Renderer floorRen;
@@ -224,7 +224,7 @@ public class LightningArtist : MonoBehaviour {
 			// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 			try {
-				if (isDrawing && Vector3.Distance(lastTargetPos, target.transform.position) > minDistance) {
+				if (isDrawing && Vector3.Distance(lastTargetPos, target.position) > minDistance) {
 					buildStroke();
 				}
 			} catch (System.Exception e) {
@@ -257,7 +257,7 @@ public class LightningArtist : MonoBehaviour {
 			if (layerList[currentLayer].frameList.Count < layerList[longestLayer].frameList.Count && textMesh != null) textMesh.text += " (" + layerList [longestLayer].frameList.Count + ")";
 		}
 
-		lastTargetPos = target.transform.position;
+		lastTargetPos = target.position;
 	}
 
 	int getLongestLayer() {
@@ -282,7 +282,7 @@ public class LightningArtist : MonoBehaviour {
 			//Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1f));
 			//layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList[layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList.Count-1].points.Add(mousePos);
 		//} else {
-		layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList[layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList.Count-1].points.Add(target.transform.position);
+		layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList[layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList.Count-1].points.Add(target.position);
 		//}
 	}
 
@@ -437,8 +437,9 @@ public class LightningArtist : MonoBehaviour {
 	*/
 
 	void instantiateStroke(Color c) {
-		BrushStroke b = Instantiate(brushPrefab).GetComponent<BrushStroke>();
-		b.brushMode = (BrushStroke.BrushMode) brushMode;
+        //BrushStroke b = Instantiate(brushPrefab).GetComponent<BrushStroke>();
+        BrushStroke b = Instantiate(brushPrefab);
+        b.brushMode = (BrushStroke.BrushMode) brushMode;
 		b.brushSize = brushSize;
 		b.brushColor = c;
 		if (useEndColor) {
@@ -451,15 +452,17 @@ public class LightningArtist : MonoBehaviour {
 	}
 
 	void instantiateFrame() {
-		BrushFrame f = Instantiate(framePrefab).GetComponent<BrushFrame>();
-		f.transform.SetParent(layerList[currentLayer].transform);
+        //BrushFrame f = Instantiate(framePrefab).GetComponent<BrushFrame>();
+        BrushFrame f = Instantiate(framePrefab);
+        f.transform.SetParent(layerList[currentLayer].transform);
 		layerList[currentLayer].frameList.Add(f);
 		longestLayer = getLongestLayer();
 	}
 
 	void instantiateLayer() {
-		BrushLayer l = Instantiate(layerPrefab).GetComponent<BrushLayer>();
-		l.transform.SetParent(transform);
+        //BrushLayer l = Instantiate(layerPrefab).GetComponent<BrushLayer>();
+        BrushLayer l = Instantiate(layerPrefab);
+        l.transform.SetParent(transform);
 		layerList.Add(l);
 		Debug.Log ("layerList has " + layerList.Count + " layers.");
 	}
@@ -765,7 +768,7 @@ public class LightningArtist : MonoBehaviour {
 		for (int i = 0; i < layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList.Count; i++) {
 			bool foundStroke = false;
 			for (int j = 0; j < layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList[i].points.Count; j++) {
-				if (!foundStroke && Vector3.Distance(layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList[i].points[j], target.transform.position) < eraseRange) {
+				if (!foundStroke && Vector3.Distance(layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList[i].points[j], target.position) < eraseRange) {
 					strokeToDelete = i;
 					foundStroke = true;
 				}
@@ -793,8 +796,8 @@ public class LightningArtist : MonoBehaviour {
 
 		for (int i = 0; i < layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList.Count; i++) {
 			for (int j = 0; j < layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList[i].points.Count; j++) {
-				if (Vector3.Distance (layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList[i].points[j], target.transform.position) < pushRange) {
-					layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList[i].points[j] = Vector3.Lerp (layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList[i].points[j], target.transform.position, pushSpeed);
+				if (Vector3.Distance (layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList[i].points[j], target.position) < pushRange) {
+					layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList[i].points[j] = Vector3.Lerp (layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList[i].points[j], target.position, pushSpeed);
 					layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList[i].isDirty = true;
 				}
 			}
@@ -806,7 +809,7 @@ public class LightningArtist : MonoBehaviour {
 
 		for (int i = 0; i < layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList.Count; i++) {
 			for (int j = 0; j < layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList[i].points.Count; j++) {
-				if (Vector3.Distance (layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList[i].points[j], target.transform.position) < colorPickRange) {
+				if (Vector3.Distance (layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList[i].points[j], target.position) < colorPickRange) {
 					mainColor = new Color(layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList[i].brushColor.r, layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList[i].brushColor.g, layerList[currentLayer].frameList[layerList[currentLayer].currentFrame].brushStrokeList[i].brushColor.b);
 				}
 			}
