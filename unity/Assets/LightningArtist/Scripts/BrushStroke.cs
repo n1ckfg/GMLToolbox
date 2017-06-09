@@ -20,8 +20,14 @@ public class BrushStroke : MonoBehaviour {
 	[HideInInspector] public LineRenderer lineRenderer;
 	[HideInInspector] public List<Vector3> points;
 
-	void Start() {
-		lineRenderer = GetComponent<LineRenderer>();
+    private int colorID;
+    private MaterialPropertyBlock block;
+
+    void Start() {
+        colorID = Shader.PropertyToID("_Color");
+        block = new MaterialPropertyBlock();
+
+        lineRenderer = GetComponent<LineRenderer>();
 		lineRenderer.enabled = false;
 		lineRenderer.sharedMaterial = mat[(int) brushMode];
 		birthTime = Time.realtimeSinceStartup;
@@ -77,18 +83,23 @@ public class BrushStroke : MonoBehaviour {
 	}
 
 	public void brushMaterialColorChanger() {
-		string colorString = "";
+		/*
+        string colorString = "";
 
 		if (brushMode == BrushMode.ADD) {
 			colorString = "_TintColor";
 		} else if (brushMode == BrushMode.ALPHA) {
 			colorString = "_Color";
 		}
+        */
 
 		if (lineRenderer) {
-			lineRenderer.material.SetColor(colorString, changeBrightness(brushColor, brushBrightness));	
-			lineRenderer.startColor = brushEndColor;
-			lineRenderer.endColor = brushColor;
+            //lineRenderer.sharedMaterial.SetColor(colorString, changeBrightness(brushColor, brushBrightness));
+            //lineRenderer.material.SetColor(colorID, changeBrightness(brushColor, brushBrightness));
+            block.SetColor(colorID, changeBrightness(brushColor, brushBrightness));
+            lineRenderer.SetPropertyBlock(block);
+            //lineRenderer.startColor = brushEndColor;
+			//lineRenderer.endColor = brushColor;
 		}
 	}
 

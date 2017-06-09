@@ -6,8 +6,11 @@ public class LADrawing : MonoBehaviour {
 
     public LightningArtist latk;
 	public BrushStroke brushPrefab;
-	public Color color = new Color(1f, 0f, 0f);
+    public enum BrushMode { ADD, ALPHA };
+    public BrushMode brushMode = BrushMode.ADD;
+    public Color color = new Color(1f, 0f, 0f);
 	public float brushSize = 0.05f;
+	public float minDistance = 0f;
 
     [HideInInspector] public int gridRows = 10;
     [HideInInspector] public int gridColumns = 10;
@@ -54,12 +57,29 @@ public class LADrawing : MonoBehaviour {
 	}
 
     public void makeCurve(List<Vector3> points) {
-        BrushStroke brush = Instantiate(brushPrefab);
-        brush.transform.SetParent(transform);
+    	if (minDistance > 0f) points = filterMinDistance(points);
+        BrushStroke brush = null;
+        if (latk) {
+            latk.inputInstantiateStroke(color, points);
+        } else {
+            brush = Instantiate(brushPrefab);
+            brush.transform.SetParent(transform);
+            brush.brushMode = (BrushStroke.BrushMode)brushMode;
+            brush.points = points;
+            brush.brushColor = color;
+            brush.brushSize = brushSize;
+        }
+    }
 
-        brush.points = points;
-        brush.brushColor = color;
-        brush.brushSize = brushSize;
+    public List<Vector3> filterMinDistance(List<Vector3> points) {
+        List<Vector3> returns = new List<Vector3>();
+        //returns.Add(points[0]);
+        for (int i=1; i<points.Count; i++) {
+            if (Vector3.Distance(points[i], points[i-1]) >= minDistance) {
+                returns.Add(points[i]);
+            }
+        }
+        return returns;
     }
 
 }

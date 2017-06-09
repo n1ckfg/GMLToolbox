@@ -244,8 +244,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   latk: {fileID: 62784435}
   brushPrefab: {fileID: 11487128, guid: beb8a1e04a58a4494ae8870cdc802e88, type: 2}
+  brushMode: 0
   color: {r: 1, g: 0, b: 0, a: 1}
   brushSize: 0.05
+  minDistance: 0
   gridRows: 10
   gridColumns: 10
   gridCell: 0.1
