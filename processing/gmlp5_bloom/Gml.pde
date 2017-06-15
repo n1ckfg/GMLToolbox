@@ -91,19 +91,28 @@ class GmlStroke {
   }
   
   void draw() {
-    for (int i=1; i<points.size(); i++) {
-      GmlPoint point1 = points.get(i);
-      GmlPoint point2 = points.get(i-1);
-      if (point1.time <= time) {
+    tex.beginShape();
+    tex.noFill();
+    for (int i=0; i<points.size(); i++) {
+      GmlPoint point = points.get(i);
+      if (point.time <= time) {
         tex.strokeWeight(5);
         tex.stroke(255,0,0,127);
-        tex.line(point1.pos.x, point1.pos.y, point1.pos.z, point2.pos.x, point2.pos.y, point2.pos.z);
-        tex.strokeWeight(2);
-        tex.stroke(255,127,0);
-        tex.line(point1.pos.x, point1.pos.y, point1.pos.z, point2.pos.x, point2.pos.y, point2.pos.z);
-
+        tex.vertex(point.pos.x, point.pos.y, point.pos.z);
       }
     }
+    tex.endShape();
+    tex.beginShape();
+    tex.noFill();
+    for (int i=0; i<points.size(); i++) {
+      GmlPoint point = points.get(i);
+      if (point.time <= time) {
+        tex.strokeWeight(2);
+        tex.stroke(255,127,0);
+        tex.vertex(point.pos.x, point.pos.y, point.pos.z + random(1) - random(1));
+      }
+    }
+    tex.endShape();
   }
   
 }

@@ -91,15 +91,17 @@ class GmlStroke {
   }
   
   void draw() {
-    for (int i=1; i<points.size(); i++) {
-      GmlPoint point1 = points.get(i);
-      GmlPoint point2 = points.get(i-1);
-      if (point1.time <= time) {
+    beginShape();
+    noFill();
+    for (int i=0; i<points.size(); i++) {
+      GmlPoint point = points.get(i);
+      if (point.time <= time) {
         strokeWeight(5);
-        stroke(255);
-        line(point1.pos.x, point1.pos.y, point1.pos.z, point2.pos.x, point2.pos.y, point2.pos.z);
+        stroke(255,225,255);
+        vertex(point.pos.x, point.pos.y, point.pos.z);
       }
     }
+    endShape();
   }
   
 }
