@@ -60,13 +60,16 @@ class GmlStroke {
 	}
 
     draw() {
-        for (var i=1; i<this.points.length; i++) {
+        beginShape();
+        noFill();
+        for (var i=0; i<this.points.length; i++) {
             if (this.points[i].time <= this.time) {
                 strokeWeight(5);
                 stroke(255, 200);
-                line(this.points[i].pos.x, this.points[i].pos.y, this.points[i-1].pos.x, this.points[i-1].pos.y);
+                vertex(this.points[i].pos.x, this.points[i].pos.y);
             }
         }
+        endShape();
     }
 
 }
