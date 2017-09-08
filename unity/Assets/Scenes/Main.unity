@@ -42,7 +42,7 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 11
   m_GIWorkflowMode: 0
   m_GISettings:
     serializedVersion: 2
@@ -54,7 +54,7 @@ LightmapSettings:
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
-    serializedVersion: 8
+    serializedVersion: 9
     m_Resolution: 2
     m_BakeResolution: 40
     m_TextureWidth: 1024
@@ -71,7 +71,7 @@ LightmapSettings:
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
-    m_MixedBakeMode: 3
+    m_MixedBakeMode: 2
     m_BakeBackend: 0
     m_PVRSampling: 1
     m_PVRDirectSampleCount: 32
@@ -87,7 +87,7 @@ LightmapSettings:
     m_PVRFilteringAtrousNormalSigma: 1
     m_PVRFilteringAtrousPositionSigma: 1
   m_LightingDataAsset: {fileID: 0}
-  m_ShadowMaskMode: 2
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -353,6 +353,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1202843965}
   - component: {fileID: 1202843964}
+  - component: {fileID: 1202843966}
   m_Layer: 0
   m_Name: GML_DRAW
   m_TagString: Untagged
@@ -373,12 +374,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   latk: {fileID: 62784435}
   latkd: {fileID: 490440163}
-  gmlMode: 1
+  gmlMode: 0
   drawFrames: 8
   drawSpeed: 0.05
   playWhileDrawing: 1
   fileName: k2p_r_hand.gml
   globalScale: {x: 0.01, y: 0.01, z: 0.01}
+  loaded: 0
 --- !u!4 &1202843965
 Transform:
   m_ObjectHideFlags: 0
@@ -392,6 +394,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1202843966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1202843963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01da2f3730784ea46b51a9287a2f7793, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gmlDraw: {fileID: 0}
+  url: http://000000book.com/data
+  appName: Unity
 --- !u!1 &1269265023
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,8 +420,7 @@ GameObject:
   - component: {fileID: 1269265026}
   - component: {fileID: 1269265025}
   - component: {fileID: 1269265024}
-  - component: {fileID: 1269265030}
-  - component: {fileID: 1269265029}
+  - component: {fileID: 1269265031}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -483,7 +498,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 27.358002, z: 0}
---- !u!114 &1269265029
+--- !u!114 &1269265031
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -491,28 +506,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 1269265023}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9565053ef3756b44298c28e3ee9fb4ee, type: 3}
+  m_Script: {fileID: 11500000, guid: b2c968b1ef2b94c48a8bbcee9f979f1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 2
-  runSpeed: 20
-  accel: 0.002
-  homePoint: {x: 0, y: 0, z: 0}
---- !u!114 &1269265030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1269265023}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4d338dfd37560b41a03b928200d5d7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  useKeyboard: 1
+  useYAxis: 1
+  yAxisName: Vertical2
+  walkSpeed: 10
+  runSpeed: 100
+  accel: 0.01
+  homePoint: {fileID: 0}
+  useMouse: 1
+  showCursor: 0
+  useButton: 1
   axes: 0
-  sensitivityX: 1
-  sensitivityY: 1
-  minimumX: -360
-  maximumX: 360
-  minimumY: -60
-  maximumY: 60
+  sensitivityX: 2
+  sensitivityY: 2
+  mousePos: {x: 0, y: 0, z: 0}
+  clicked: 0
+  isDrawing: 0
+  useRaycaster: 1
+  followMouse: 1
+  isLooking: 0
+  isLookingAt: 
+  lastHitPos: {x: 1, y: 1, z: 1}
+  useCollisions: 0

@@ -16,14 +16,15 @@ public class GMLDraw : MonoBehaviour {
     public Vector3 globalScale = new Vector3(0.01f, 0.01f, 0.01f);
 
     [HideInInspector] public GML gml;
+    [HideInInspector] public XmlDocument xml;
+    [HideInInspector] public bool loaded = false;
 
-    private XmlDocument xml; 
-    private string url;
     private bool ready = false;
+    private string url;
     private int strokeCounter = 0;
     private int pointCounter = 0;
 
-	void Start() {
+	private void Start() {
         url = Application.dataPath + "/StreamingAssets/" + fileName;
 
         if (gmlMode == GMLMode.READ_DRAW) {
@@ -36,7 +37,7 @@ public class GMLDraw : MonoBehaviour {
         StartCoroutine(LoadGML(url));
     }
 
-    void Update() {
+    private void Update() {
 		if (ready && gml.strokes.Count > 0 && gml.strokes[0].points.Count > 1) {
             latk.clicked = true; 
             latk.target.position = Vector3.Lerp(latk.target.position, gml.strokes[strokeCounter].points[pointCounter].pt, Time.deltaTime/drawSpeed);
@@ -59,7 +60,7 @@ public class GMLDraw : MonoBehaviour {
 
     // https://forum.unity3d.com/threads/xml-reading-a-xml-file-in-unity-how-to-do-it.44441/
 
-    IEnumerator LoadGML(string url) {
+    private IEnumerator LoadGML(string url) {
         gml = new GML();
         xml = new XmlDocument();
         xml.Load(url);
@@ -93,6 +94,8 @@ public class GMLDraw : MonoBehaviour {
             }
             gml.strokes.Add(stroke);
         }
+
+        loaded = true;
 
         if (gmlMode == GMLMode.READ_STILL) {
             for (int i = 0; i < gml.strokes.Count; i++) {
