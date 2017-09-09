@@ -14,13 +14,12 @@ public class GMLDraw : MonoBehaviour {
     public bool playWhileDrawing = true;
     public string fileName;
     public Vector3 globalScale = new Vector3(0.01f, 0.01f, 0.01f);
+	public string url;
 
     [HideInInspector] public GML gml;
-    [HideInInspector] public XmlDocument xml;
-    [HideInInspector] public bool loaded = false;
+	[HideInInspector] public XmlDocument xml;
 
     private bool ready = false;
-    private string url;
     private int strokeCounter = 0;
     private int pointCounter = 0;
 
@@ -65,6 +64,7 @@ public class GMLDraw : MonoBehaviour {
         xml = new XmlDocument();
         xml.Load(url);
         yield return xml;
+
         XmlNode root = xml.FirstChild;
 
         XmlNode tag = root["tag"];
@@ -94,9 +94,7 @@ public class GMLDraw : MonoBehaviour {
             }
             gml.strokes.Add(stroke);
         }
-
-        loaded = true;
-
+			
         if (gmlMode == GMLMode.READ_STILL) {
             for (int i = 0; i < gml.strokes.Count; i++) {
                 latkd.makeCurve(gml.strokes[i].getPoints());
