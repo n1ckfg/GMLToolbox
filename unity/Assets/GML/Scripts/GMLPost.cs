@@ -48,12 +48,13 @@ public class GMLPost : MonoBehaviour {
 		form.AddField("application", appName);
 		form.AddField("gml", xmlString);
 
-		www = new WWW(url, form);
+        www = new WWW(url, form);
 		yield return www;
+
 		if (!string.IsNullOrEmpty(www.error)) {
 			print(www.error);
 		} else {
-			print("Finished Uploading Screenshot");
+            print("Finished posting GML to " + url);
 		}
 
 		/* 

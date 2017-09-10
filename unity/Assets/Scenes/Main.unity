@@ -380,7 +380,7 @@ MonoBehaviour:
   playWhileDrawing: 1
   fileName: k2p_r_hand.gml
   globalScale: {x: 0.01, y: 0.01, z: 0.01}
-  loaded: 0
+  url: 
 --- !u!4 &1202843965
 Transform:
   m_ObjectHideFlags: 0
