@@ -15,8 +15,8 @@
 10. Tilt Brush: Python script; convert .tilt -> GML
 
 * Placeholders
-11. oF
-12. three.js
-13. Unity
-14. Unreal
-15. svg
+X 11. oF
+X 12. three.js
+X 13. Unity
+X 14. Unreal
+X 15. svg
